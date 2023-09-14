@@ -9,10 +9,9 @@ export default function Counter() {
         console.log(counter)
     }
     return (
-        <section>
-            <h1>Contador</h1>
-            <p>Valor del contador: {counter}</p>
-            <button onClick={interruptorCounter} className="border">Incrementar</button>
+        <section className="h-screen w-screen bg-black flex flex-col justify-center items-center">
+            <p className="text-7xl text-red-700">Valor del contador: {counter}</p>
+            <button className="bg-red-700 text-amber-500 p-2 rounded-2xl" onClick={interruptorCounter}>Incrementar</button>
         </section>
     )
 }
