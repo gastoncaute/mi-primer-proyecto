@@ -2,9 +2,9 @@
 import { useRef } from "react"
 
 export default function Form() {
-    const inputNameRef = useRef()
-    const inputEmailRef = useRef()
-    const inputMSGRef = useRef()
+    const inputNameRef = useRef(null)
+    const inputEmailRef = useRef(null)
+    const inputMSGRef = useRef(null)
 
     const enviarButton = () => {
         const name = inputNameRef.current.value
@@ -21,10 +21,34 @@ export default function Form() {
 
     return (
         <section>
-            <input ref={inputNameRef} type="text" placeholder="Nombre" className="border" />
-            <input ref={inputEmailRef} type="email" placeholder="Correo Electronico" className="border" />
-            <input ref={inputMSGRef} type="text" placeholder="Mensaje" className="border" />
-            <button onClick={enviarButton}>Enviar</button>
+            <form onSubmit={(e) => {
+                e.preventDefault()
+                enviarButton()
+            }}>
+                <input 
+                    ref={inputNameRef}
+                    type="text"
+                    placeholder="Nombre"
+                    className="border border-black"
+                />
+                <input
+                    ref={inputEmailRef}
+                    type="email"
+                    placeholder="Correo Electronico"
+                    className="border border-black"
+                />
+                <input
+                    ref={inputMSGRef}
+                    type="text"
+                    placeholder="Mensaje"
+                    className="border border-black"
+                />
+                <input
+                    type="submit"
+                    value={"Enviar"}
+                    className="border border-black"
+                />
+            </form>
         </section>
     )
 }
